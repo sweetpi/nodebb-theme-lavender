@@ -11,23 +11,7 @@
 <input type="hidden" template-variable="viewcount" value="{viewcount}" />
 
 <div class="topic">
-	<ol class="breadcrumb">
-		<!-- BEGIN breadcrumbs -->
-		<li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-			<!-- IF !@last --><a href="{breadcrumbs.url}" itemprop="url"><!-- ENDIF !@last -->
-				<span itemprop="title">
-					{breadcrumbs.text}
-					<!-- IF @last -->
-					<!-- IF !feeds:disableRSS --><a target="_blank" href="{relative_path}/topic/{tid}.rss"><i class="fa fa-rss-square"></i></a><!-- ENDIF !feeds:disableRSS -->
-					<!-- ENDIF @last -->
-				</span>
-			<!-- IF !@last --></a><!-- ENDIF !@last -->
-		</li>
-		<!-- END breadcrumbs -->
-		<div class="loading-indicator pull-right" done="0" style="display:none;">
-			<i class="fa fa-refresh fa-spin"></i>
-		</div>
-	</ol>
+	<!-- IMPORT partials/breadcrumbs.tpl -->
 
 	<ul id="post-container" class="posts" data-tid="{tid}">
 		<!-- BEGIN posts -->
@@ -206,12 +190,7 @@
 	</div>
 
 	<!-- IF config.usePagination -->
-	<div class="text-center">
-		<ul class="pagination">
-			<li class="previous pull-left"><a href="#"><i class="fa fa-chevron-left"></i> [[global:previouspage]]</a></li>
-			<li class="next pull-right"><a href="#">[[global:nextpage]] <i class="fa fa-chevron-right"></i></a></li>
-		</ul>
-	</div>
+		<!-- IMPORT partials/paginator.tpl -->
 	<!-- ENDIF config.usePagination -->
 
 	<!-- IMPORT partials/move_thread_modal.tpl -->
