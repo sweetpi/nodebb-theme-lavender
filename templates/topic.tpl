@@ -109,13 +109,14 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- IF !posts.index -->
+				<div class="post-bar" data-index="{posts.index}">
+					<!-- IMPORT partials/post_bar.tpl -->
+				</div>
+				<!-- ENDIF !posts.index -->
 			</li>
 
-			<!-- IF !posts.index -->
-			<div class="post-bar" data-index="{posts.index}">
-				<!-- IMPORT partials/post_bar.tpl -->
-			</div>
-			<!-- ENDIF !posts.index -->
 		<!-- END posts -->
 	</ul>
 
@@ -132,5 +133,9 @@
 	<!-- IMPORT partials/move_post_modal.tpl -->
 </div>
 
-<!-- IMPORT partials/noscript/paginator.tpl -->
-<!-- IMPORT partials/variables/topic.tpl -->
+<!-- IF !config.usePagination -->
+<noscript>
+	<!-- IMPORT partials/paginator.tpl -->
+</noscript>
+<!-- ENDIF !config.usePagination -->
+
